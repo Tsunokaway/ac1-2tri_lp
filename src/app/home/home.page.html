@@ -7,8 +7,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-label>Selecione a temperatura média:</ion-label>
   <ion-range (ionChange)="temperatura_range($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="40">
     <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
     <ion-icon slot="end" name="add-circle-outline"></ion-icon>
   </ion-range>
+  <ion-button (click)="confirmar()">Confirmar</ion-button>
 </ion-content>
