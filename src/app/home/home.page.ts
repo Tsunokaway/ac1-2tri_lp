@@ -12,11 +12,24 @@ export class HomePage {
 
   constructor(public router: Router) { }
   //definindo as variáveis
-  temperatura = 0;
+  temperatura1 = 0;
+  temperatura2 = 0;
+  temperatura3 = 0;
+  temperatura4 = 0;
+  res = '';
   lista_recomendacao_culturas = "";
   //valor do ion-range:
-  temperatura_range(event: RangeCustomEvent) {
-    this.temperatura = parseInt(event.detail.value.toString())
+  temperatura_range1(event: RangeCustomEvent) {
+    this.temperatura1 = parseInt(event.detail.value.toString())
+  }
+  temperatura_range2(event: RangeCustomEvent) {
+    this.temperatura2 = parseInt(event.detail.value.toString())
+  }
+  temperatura_range3(event: RangeCustomEvent) {
+    this.temperatura3 = parseInt(event.detail.value.toString())
+  }
+  temperatura_range4(event: RangeCustomEvent) {
+    this.temperatura4 = parseInt(event.detail.value.toString())
   }
 
   /*
@@ -36,9 +49,33 @@ export class HomePage {
 
   //função do botão que encaminha para outra tela
   confirmar() {
-    if (this.temperatura) {
+    let media_temperatura = (this.temperatura1+this.temperatura2+this.temperatura3+this.temperatura4)/4
+    let recomedadas = [''];
+    switch(true){
+      case media_temperatura >= 15 && media_temperatura <= 25:
+      recomendadas.push('Morangos, Maçãs, Ameixas, Peras')
+      break;
+    }switch(true){
+      case media_temperatura >= 20 && media_temperatura <= 30:
+      recomendadas.push('Uvas, Figos, Laranjas')
+      break;
+    }switch(true){
+      case media_temperatura >= 0 && media_temperatura <= 10:
+      recomendadas.push('Mirtilos')
+      break;
+    }switch(true){
+      case media_temperatura >= 20 && media_temperatura <= 35:
+      recomendadas.push('Acerola')
+      break;
+    }
 
-    } else if (this.temperatura) { }
+    if(recomendadas.lenght > 0){
+      this.res = 'Culturas recomendadas:' + recomendadas.join(',')
+    }else{
+      this.res = 'Não há culturas recomendadas para essa média.'
+    }
+
+
     this.router.navigateByUrl
       (`/tela-recomendacao-cultura/${this.temperatura}`);
   }

@@ -7,10 +7,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-label>Selecione a temperatura média:</ion-label>
-  <ion-range (ionChange)="temperatura_range($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="40">
+  <ion-label>Selecione a temperatura 1:</ion-label>
+  <ion-range (ionChange)="temperatura_range1($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="35">
     <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
     <ion-icon slot="end" name="add-circle-outline"></ion-icon>
   </ion-range>
+  <ion-label>Selecione a temperatura 2:</ion-label>
+  <ion-range (ionChange)="temperatura_range2($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="35">
+    <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
+    <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+  </ion-range>
+  <ion-label>Selecione a temperatura 3:</ion-label>
+  <ion-range (ionChange)="temperatura_range3($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="35">
+    <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
+    <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+  </ion-range>
+  <ion-label>Selecione a temperatura 4:</ion-label>
+  <ion-range (ionChange)="temperatura_range4($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="35">
+    <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
+    <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+  </ion-range>
+  <ion-label>{{res}}</ion-label>
   <ion-button (click)="confirmar()">Confirmar</ion-button>
 </ion-content>
